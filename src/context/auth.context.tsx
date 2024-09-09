@@ -2,7 +2,7 @@ import { createContext } from 'react';
 
 export type AuthContextType = {
   user: any;
-  login: (user: any) => void;
+  login: (email: string, password: string) => void;
   logout: () => void;
 };
 

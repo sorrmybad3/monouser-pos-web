@@ -1,5 +1,4 @@
 import { IconLockPassword, IconMail } from '@tabler/icons-react';
-import { useNavigate } from 'react-router-dom';
 import {
   Anchor,
   Button,
@@ -13,9 +12,10 @@ import {
   Text,
   Title,
 } from '@mantine/core';
+import { useAuth } from '@/hooks/auth.hook';
 
 export function LoginPage() {
-  const navigate = useNavigate();
+  const { login } = useAuth();
   return (
     <Container h="100vh">
       <Center h="100%">
@@ -53,7 +53,7 @@ export function LoginPage() {
           </Container>
 
           <Container w="100%">
-            <Button w="100%" variant="filled" onClick={() => navigate('/dashboard')}>
+            <Button w="100%" variant="filled" onClick={() => login('test', 'test')}>
               Log In
             </Button>
           </Container>
