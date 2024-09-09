@@ -1,4 +1,4 @@
-import { IconGauge, IconHome2 } from '@tabler/icons-react';
+import { IconBuildingWarehouse, IconBadgeTm, IconReportMoney, IconReceipt } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 import { Container, NavLink } from '@mantine/core';
 
@@ -10,26 +10,26 @@ export function Navigation() {
       <NavLink
         href="#required-for-focus"
         label="Inventory"
-        leftSection={<IconGauge size="1rem" stroke={1.5} />}
+        leftSection={<IconBuildingWarehouse size="1rem" stroke={1.5} />}
         childrenOffset={28}
       >
         <NavLink
           href="#required-for-focus"
           label="Products"
-          leftSection={<IconHome2 size="1rem" stroke={1.5} />}
+          leftSection={<IconBadgeTm size="1rem" stroke={1.5} />}
           onClick={() => navigate('/dashboard/products')}
         />
       </NavLink>
       <NavLink
         href="#required-for-focus"
         label="Sales"
-        leftSection={<IconGauge size="1rem" stroke={1.5} />}
+        leftSection={<IconReportMoney size="1rem" stroke={1.5} />}
         childrenOffset={28}
       >
         <NavLink
           href="#required-for-focus"
           label="Orders"
-          leftSection={<IconHome2 size="1rem" stroke={1.5} />}
+          leftSection={<IconReceipt size="1rem" stroke={1.5} />}
           onClick={() => navigate('/dashboard/orders')}
         />
       </NavLink>
