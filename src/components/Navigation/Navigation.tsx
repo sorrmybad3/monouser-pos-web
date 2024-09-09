@@ -1,4 +1,10 @@
-import { IconBuildingWarehouse, IconBadgeTm, IconReportMoney, IconReceipt } from '@tabler/icons-react';
+import {
+  IconBadgeTm,
+  IconBuildingStore,
+  IconBuildingWarehouse,
+  IconReceipt,
+  IconReportMoney,
+} from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 import { Container, NavLink } from '@mantine/core';
 
@@ -7,6 +13,12 @@ export function Navigation() {
 
   return (
     <Container p={4} pos="sticky" top={0} size="100%">
+      <NavLink
+        href="#required-for-focus"
+        label="POS"
+        leftSection={<IconBuildingStore size="1rem" stroke={1.5} />}
+        onClick={() => navigate('/dashboard/pos')}
+      />
       <NavLink
         href="#required-for-focus"
         label="Inventory"
