@@ -1,9 +1,12 @@
+import { useAuth } from "@/hooks/auth.hook";
 import { ActionIcon, Avatar, Container, Group, Stack, Text } from "@mantine/core";
 import { IconPower } from "@tabler/icons-react";
 
 //TODO: Get S3 image from user
 //TODO: Get user name from user
+//TODO: PUT THE AVATAR AND USER DETAIL CLOSER.
 export function SidebarHeader() {
+  const { logout } = useAuth();
   return(
     <>
       <Group justify="space-between">
@@ -15,7 +18,7 @@ export function SidebarHeader() {
         </Container>
         
         <Group>
-          <ActionIcon size="md" variant="light" color="red" radius={"md"}>
+          <ActionIcon size="lg" variant="light" color="red" radius={"md"} onClick={logout}>
             <IconPower />
           </ActionIcon>
         </Group>
