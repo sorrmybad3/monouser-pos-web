@@ -5,7 +5,7 @@ import { ProductsOutlet } from './components/DashboardOutlet/Products.outlet';
 import { DashboardPage } from './pages/Dashboard.page';
 import { HomePage } from './pages/Home.page';
 import { LoginPage } from './pages/Login.page';
-import { ProtectedRoute } from './wrappers/route.wrappers';
+import { ProtectedRoute } from './wrappers/route.wrapper';
 
 export function Router() {
   return (

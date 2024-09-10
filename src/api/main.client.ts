@@ -4,7 +4,7 @@ import request from 'superagent';
 type QueryParams = Record<string, any> | string;
 type BodyParams = string | Record<string, any>;
 
-const mainPlatformUrl = 'https://api.example.com'; // Replace with your actual API base URL
+const mainPlatformUrl = 'http://localhost:3000'; // Replace with your actual API base URL
 
 const get = (endpoint: string, query: QueryParams = {}) => {
   return request.get(`${mainPlatformUrl}${endpoint}`).query(query);
