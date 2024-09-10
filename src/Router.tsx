@@ -6,6 +6,7 @@ import { DashboardPage } from './pages/Dashboard.page';
 import { HomePage } from './pages/Home.page';
 import { LoginPage } from './pages/Login.page';
 import { ProtectedRoute } from './wrappers/route.wrapper';
+import { OverviewOutlet } from './components/DashboardOutlet/Overview.outlet';
 
 export function Router() {
   return (
@@ -20,6 +21,7 @@ export function Router() {
           </ProtectedRoute>
         }
       >
+        <Route path="overview" Component={OverviewOutlet} />
         <Route path="products" Component={ProductsOutlet} />
         <Route path="orders" Component={OrdersOutlet} />
         <Route path="pos" Component={PosOutlet} />

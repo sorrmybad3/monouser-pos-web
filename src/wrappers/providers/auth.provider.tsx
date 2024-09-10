@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: any) => {
         onSuccess: (token) => {
           setUser(true);
           addCokkie(CookiesName.AUTH_TOKEN, token);
-          navigate('/dashboard', { replace: true });
+          navigate('/dashboard/overview', { replace: true });
         },
         onError: (_) => {
           deleteCookie(CookiesName.AUTH_TOKEN);

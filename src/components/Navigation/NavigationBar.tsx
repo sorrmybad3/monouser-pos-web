@@ -4,15 +4,21 @@ import {
   IconBuildingWarehouse,
   IconReceipt,
   IconReportMoney,
+  IconChartHistogram
 } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
-import { Container, NavLink } from '@mantine/core';
+import { NavLink } from '@mantine/core';
 
 export function NavigationBar() {
   const navigate = useNavigate();
 
   return (
-    <Container p={4} pos="sticky" top={0} size="100%">
+    <>
+      <NavLink
+        label="Overview"
+        leftSection={<IconChartHistogram size="1rem" stroke={1.5} />}
+        onClick={() => navigate('/dashboard/overview')}
+      />
       <NavLink
         label="POS"
         leftSection={<IconBuildingStore size="1rem" stroke={1.5} />}
@@ -40,6 +46,6 @@ export function NavigationBar() {
           onClick={() => navigate('/dashboard/orders')}
         />
       </NavLink>
-    </Container>
+    </>
   );
 }
