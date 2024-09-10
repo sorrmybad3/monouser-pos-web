@@ -8,7 +8,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { Container, NavLink } from '@mantine/core';
 
-export function Navigation() {
+export function NavigationBar() {
   const navigate = useNavigate();
 
   return (
