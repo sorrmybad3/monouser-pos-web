@@ -1,28 +1,34 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '@/context/auth.context';
+import { useCookiesManager } from '@/hooks/cookie.hook';
 import { useAuthMutations } from '@/mutations/auth.mutation';
+import { CookiesName } from '@/utils/constants/cookies.constants';
 
 export const AuthProvider = ({ children }: any) => {
   const [user, setUser] = useState<boolean | null>(null);
   const navigate = useNavigate();
   const { loginMutation } = useAuthMutations();
+  const { addCokkie, deleteCookie } = useCookiesManager();
 
-  const login = (email: string, password: string) => {
+  const login = ({ email, password }: { email: string; password: string }) => {
     loginMutation.mutate(
       { email, password },
       {
-        onSuccess: (_) => {
-          setUser(true); // Update user state to indicate login success
-          navigate('/dashboard', { replace: true }); // Redirect to the dashboard
+        onSuccess: (token) => {
+          setUser(true);
+          addCokkie(CookiesName.AUTH_TOKEN, token);
+          navigate('/dashboard', { replace: true });
         },
-        onError: (_) => {},
+        onError: (_) => {
+          deleteCookie(CookiesName.AUTH_TOKEN);
+        },
       }
     );
   };
 
   const logout = () => {
-    setUser(null);
+    deleteCookie(CookiesName.AUTH_TOKEN);
     navigate('/login', { replace: true });
   };
 

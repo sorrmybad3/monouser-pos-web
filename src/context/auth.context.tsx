@@ -1,10 +1,5 @@
 import { createContext } from 'react';
-
-export type AuthContextType = {
-  user: any;
-  login: (email: string, password: string) => void;
-  logout: () => void;
-};
+import { AuthContextType } from '@/types/auth.type';
 
 const AuthInitialValue: AuthContextType = {
   user: null,
